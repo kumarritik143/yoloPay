@@ -2,8 +2,10 @@ import React, { useState } from 'react';
 import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
 import Svg, { Rect, Defs, LinearGradient, Stop, G, Path, Circle } from "react-native-svg";
 import { faker } from '@faker-js/faker';
+import { useNavigation } from '@react-navigation/native';
 
 const PaymentScreen = () => {
+  const navigation: any = useNavigation();
   const [isFrozen, setIsFrozen] = useState(true);
   const [showCVV, setShowCVV] = useState(false);
   const [cardDetails, setCardDetails] = useState({
@@ -139,15 +141,15 @@ const PaymentScreen = () => {
       </View>
       {/* Bottom Navigation */}
       <View style={styles.bottomNav}>
-        <TouchableOpacity style={styles.navItem} onPress={() => { /* handle home press */ }}>
+        <TouchableOpacity style={styles.navItem} onPress={() => navigation.navigate('PaymentScreen')}>
           {homeComponent({})}
           <Text style={styles.navLabelInactive}>home</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.navItemActive} onPress={() => { /* handle pay press */ }}>
+        <TouchableOpacity style={styles.navItemActive} onPress={() => navigation.navigate('PaymentScreen')}>
           {payComponent({})}
           <Text style={styles.navLabelActive}>yolo pay</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.navItem} onPress={() => { /* handle ginie press */ }}>
+        <TouchableOpacity style={styles.navItem} onPress={() => navigation.navigate('PaymentScreen')}>
           {ginieComponent({})}
           <Text style={styles.navLabelInactive}>ginie</Text>
         </TouchableOpacity>
@@ -288,7 +290,7 @@ const styles = StyleSheet.create({
     left: 0,
     width: '100%',
     height: '100%',
-    backgroundColor: 'rgba(0, 0, 0, 0.78)',
+    backgroundColor: 'rgba(0, 0, 0, 0.65)',
     borderRadius: 18,
     zIndex: 1,
   },

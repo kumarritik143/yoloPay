@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
 import Svg, { Rect, Defs, LinearGradient, Stop, G, Path, Circle } from "react-native-svg";
 import { faker } from '@faker-js/faker';
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation } from '@react-navigation/native'
+
 
 const PaymentScreen = () => {
   const navigation: any = useNavigation();
@@ -141,7 +142,7 @@ const PaymentScreen = () => {
       </View>
       {/* Bottom Navigation */}
       <View style={styles.bottomNav}>
-        <TouchableOpacity style={styles.navItem} onPress={() => navigation.navigate('PaymentScreen')}>
+        <TouchableOpacity style={styles.navItem} onPress={() => navigation.navigate('HomeScreen')}>
           {homeComponent({})}
           <Text style={styles.navLabelInactive}>home</Text>
         </TouchableOpacity>
@@ -149,7 +150,7 @@ const PaymentScreen = () => {
           {payComponent({})}
           <Text style={styles.navLabelActive}>yolo pay</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.navItem} onPress={() => navigation.navigate('PaymentScreen')}>
+        <TouchableOpacity style={styles.navItem} onPress={() => navigation.navigate('GinieScreen')}>
           {ginieComponent({})}
           <Text style={styles.navLabelInactive}>ginie</Text>
         </TouchableOpacity>
@@ -617,3 +618,5 @@ function yoloComponent(props: object) {
       </View>
     );
   }
+
+export { homeComponent, payComponent, ginieComponent, borderComponent };

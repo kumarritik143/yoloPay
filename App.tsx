@@ -11,6 +11,8 @@ import * as React from "react"
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import PaymentScreen from './src/paymentScreen';
+import HomeScreen from './src/HomeScreen';
+import GinieScreen from './src/GinieScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -21,7 +23,8 @@ export default function App() {
     <NavigationContainer>
       <Stack.Navigator initialRouteName="PaymentScreen" screenOptions={{ headerShown: false }}>
         <Stack.Screen name="PaymentScreen" component={PaymentScreen} />
-        {/* Add other screens here */}
+        <Stack.Screen name="HomeScreen" component={HomeScreen} />
+        <Stack.Screen name="GinieScreen" component={GinieScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
